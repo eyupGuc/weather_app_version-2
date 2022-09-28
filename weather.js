@@ -7,7 +7,7 @@ localStorage.setItem("tokenKey", "e815a95d20a585101c219591fd494992");
 
 localStorage.setItem(
   "tokenKeyEncrypted",
-  EncryptStringAES("605ed0a830c5efab159b66090cd503a6")
+  EncryptStringAES("e815a95d20a585101c219591fd494992")
 );
 
 // localStorage.setItem(
