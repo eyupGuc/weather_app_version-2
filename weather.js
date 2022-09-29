@@ -5,7 +5,15 @@ const input = document.querySelector(".container input");
 
 const msg = document.querySelector("span.msg");
 const list = document.querySelector(".ajax-section .cities");
-console.log(list);
+// console.log(list);
 /*const list=document.querySelector(".ajax-section.cities"); eğer bu şekilde .cities ile .ajax-section bitişik olursa tek ikisinde de ortak bir class var  */
 
-localStorage.setItem("tokenKey", "e815a95d20a585101c219591fd494992");
+localStorage.setItem(
+  "tokenKey",
+  "qHxuptpLNG3ry0nVTlXqBFeeSAy4z/idGQyvFEzrj5bn+pbyoHyuArL+hW1ov03F"
+);
+
+// localStorage.setItem(
+//   "tokenKeyEncrypted",
+//   EncryptStringAES("e815a95d20a585101c219591fd494992")
+// );
