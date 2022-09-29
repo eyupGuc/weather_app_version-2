@@ -28,6 +28,6 @@ const getWeatherDataFromApi = () => {
   const tokenKey = DecryptStringAES(localStorage.getItem("tokenKey"));
   alert(tokenKey);
   console.log(tokenKey);
-  const inputValue=input.ariaValueMax;
+  const inputValue=input.value;
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${}&appid=e815a95d20a585101c219591fd494992&units=metric`;
 };
