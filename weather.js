@@ -83,8 +83,8 @@ const getWeatherDataFromApi = async () => {
 
     //!Bubbling
     createdLi.addEventListener("click", (e) => {
-      alert(`${e.target.tagName} element is clicked`);
-      window.location.href = "https://www.accuweather.com/";
+      // alert(`${e.target.tagName} element is clicked`);
+      // window.location.href = "https://www.accuweather.com/";
     });
 
     form.reset();
@@ -97,3 +97,9 @@ const getWeatherDataFromApi = async () => {
   }
   form.reset();
 };
+
+document.querySelector(".cities").addEventListener("click", (e) => {
+  if (e.target.tagName == "IMG") {
+    alert("img is clicked");
+  }
+});
