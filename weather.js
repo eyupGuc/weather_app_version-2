@@ -40,6 +40,24 @@ const getWeatherDataFromApi = async () => {
 
   const iconUrlAWS = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0].icon}.svg`;
 
+  const cityNameSpans = list.querySelectorAll(".city span");
+  const cityNameSpansArray = Array.from(cityNameSpans);
+  if (cityNameSpansArray.length > 0) {
+    const filteredArray = cityNameSpansArray.filter(
+      (span) => span.innerText == name
+    );
+    if (filteredArray.length > 0) {
+      msg.innerText =
+        msg.innerText = `You already know the weather for ${name}, Please search for another city 😉`;
+      setTimeout(() => {
+        msg.innerText = "";
+      }, 5000);
+      form.reset();
+      return; // kodu sonlandırır.
+    }
+  }
+  console.log(cityNameSpans);
+
   const createdLi = document.createElement("li");
   createdLi.classList.add("city");
   createdLi.innerHTML = `<h2 class="city-name" data-name="${name}, ${
@@ -52,7 +70,7 @@ const getWeatherDataFromApi = async () => {
 
   // append vs prepend
   // list.append(createdLi);
-  list.prepend(createdLi);
+  list.prepend(createdLi); // son yazılan ilk başa
 
   form.reset();
 };
