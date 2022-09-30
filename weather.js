@@ -33,9 +33,10 @@ const getWeatherDataFromApi = async () => {
   const lang = "tr";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${tokenKey}&units=${units}&lang=${lang}`;
   try {
-    const response = await fetch(url).then((response) => response.json());
+    // const response = await fetch(url).then((response) => response.json());
+    const response = await axios(url);
     console.log(response);
-    const { main, sys, weather, name } = response;
+    const { main, sys, weather, name } = response.data;
     const iconUrl = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
 
     const iconUrlAWS = `https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${weather[0].icon}.svg`;
@@ -52,7 +53,7 @@ const getWeatherDataFromApi = async () => {
         setTimeout(() => {
           msg.innerText = "";
         }, 5000);
-        form.reset();
+
         return; // kodu sonlandırır.
       }
     }
@@ -75,9 +76,10 @@ const getWeatherDataFromApi = async () => {
     form.reset();
   } catch (e) {
     msg.innerText = `404 (City Not Found)`;
+
     setTimeout(() => {
       msg.innerText = "";
     }, 5000);
-    form.reset();
   }
+  form.reset();
 };
