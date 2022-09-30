@@ -23,13 +23,16 @@ form.addEventListener("submit", (e) => {
 });
 
 //Get api function
-const getWeatherDataFromApi = async() => {
+const getWeatherDataFromApi = async () => {
   // alert("http request is gone");
   const tokenKey = DecryptStringAES(localStorage.getItem("tokenKey"));
   alert(tokenKey);
   console.log(tokenKey);
-  const inputValue=input.value;
+  const inputValue = input.value;
+  const units = "metric";
+  const lang = "tr";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${tokenKey}&units=${units}&lang=${lang}`;
 
-  const response=await fetch(url).then()
+  const response = await fetch(url).then((response) => response.json());
+  console.log(response);
 };
