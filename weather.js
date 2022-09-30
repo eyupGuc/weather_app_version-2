@@ -35,6 +35,7 @@ const getWeatherDataFromApi = async () => {
   try {
     // const response = await fetch(url).then((response) => response.json());
     const response = await axios(url);
+
     console.log(response);
     const { main, sys, weather, name } = response.data;
     const iconUrl = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
