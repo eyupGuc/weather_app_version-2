@@ -18,7 +18,7 @@ localStorage.setItem(
 //   EncryptStringAES("e815a95d20a585101c219591fd494992")
 // );
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  e.preventDefault(); //submit sayfayı refresh yaptığı için bunu engelledik
   getWeatherDataFromApi();
 });
 
@@ -73,6 +73,19 @@ const getWeatherDataFromApi = async () => {
     // append vs prepend
     // list.append(createdLi);
     list.prepend(createdLi); // son yazılan ilk başa
+
+    //!Capturing
+    createdLi.addEventListener("click", (e) => {
+      if (e.target.tagName == "IMG") {
+        e.target.src = e.target.src == iconUrl ? iconUrlAWS : iconUrl;
+      }
+    });
+
+    //!Bubbling
+    createdLi.addEventListener("click", (e) => {
+      alert(`${e.target.tagName} element is clicked`);
+      window.location.href = "https://www.accuweather.com/";
+    });
 
     form.reset();
   } catch (e) {
